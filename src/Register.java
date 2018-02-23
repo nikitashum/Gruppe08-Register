@@ -8,6 +8,7 @@ import java.util.Iterator;
  * @author Nikita Sumahers, Sarmad Abbas and Kristin Hagen
  * @version 2018-02-12
  */
+
 public class Register {
 
     private ArrayList<Newspaper> newspaperList;
