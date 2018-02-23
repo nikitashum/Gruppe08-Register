@@ -2,36 +2,52 @@
 import java.util.ArrayList;
 import java.util.Iterator;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 /**
+ * Represents the register of newspaper.
  *
- * @author shuma
+ * @author Nikita Sumahers, Sarmad Abbas and Kristin Hagen
+ * @version 2018-02-12
  */
 public class Register {
 
-    private ArrayList<NewsPaper> newspaperList;
+    private ArrayList<Newspaper> newspaperList;
 
+    /**
+     * Constructor for objects of class Register.
+     */
     public Register() {
-        this.newspaperList = new ArrayList<NewsPaper>();
+        this.newspaperList = new ArrayList<Newspaper>();
     }
 
-    public void addNewspaper(NewsPaper newspaper) {
+    /**
+     * Adds a newspaper to the register
+     *
+     * @param newspaper - the newspaper to add to the register
+     */
+    public void addNewspaper(Newspaper newspaper) {
         this.newspaperList.add(newspaper);
     }
 
+    /**
+     * Removes a newspaper by its index from the register
+     *
+     * @param index - the index of the newspaper to remove from the register
+     */
     public void removeNewspaperByIndex(int index) {
         this.newspaperList.remove(index);
     }
 
-    public NewsPaper getNewspaperByTitle(String title) {
-        NewsPaper foundNewspaper = null;
+    /**
+     * Searches and returns for all newspapers that contain a given string in
+     * their title
+     *
+     * @param title - the string of the newspaper to remove from the register
+     */
+    public Newspaper getNewspaperByTitle(String title) {
+        Newspaper foundNewspaper = null;
         int index = 0;
         while ((null == foundNewspaper) && (index < this.newspaperList.size())) {
-            NewsPaper p = this.newspaperList.get(index++);
+            Newspaper p = this.newspaperList.get(index++);
             if (p.getTitle().contains(title)) {
                 foundNewspaper = p;
             }
@@ -39,30 +55,40 @@ public class Register {
         return foundNewspaper;
     }
 
-    public void removeNewspaperByTitle(String title) {
-        NewsPaper foundNewspaper = null;
-        int index = 0;
-        while ((null == foundNewspaper) && (index < this.newspaperList.size())) {
-            NewsPaper p = this.newspaperList.get(index++);
-            if (p.getTitle().equalsIgnoreCase(title)) {
-                foundNewspaper = p;
+    /**
+     * Removes all newspapers that contain a given string in their title from
+     * the register
+     *
+     * @param title - the string of the newspaper to remove from the register
+     */
+    public void removeByTitleContains(String titleToRemove) {
+        Iterator<Newspaper> it = newspaperList.iterator();
+        while (it.hasNext()) {
+            Newspaper t = it.next();
+            String title = t.getTitle();
+            if (title.contains(titleToRemove)) {
+                it.remove();
             }
         }
-        this.newspaperList.remove(foundNewspaper);
     }
 
+    /**
+     * Lists all persons in the phone book to the terminal window.
+     */
     public void listAllNewspaper() {
-        for (NewsPaper p : this.newspaperList) {
+        for (Newspaper p : this.newspaperList) {
             System.out.println(p.getNewspaperDetails());
         }
     }
-    
-       public void fillNewsPaperRegister()
-    {
-        newspaperList.add(new NewsPaper("VG", "VG", 365, "Sport"));
-        newspaperList.add(new NewsPaper("Adressa", "Adressa", 300, "Dagavis"));
-        newspaperList.add(new NewsPaper("Test", "Test2", 200, "anotherCategory"));
-        newspaperList.add(new NewsPaper("365", "somePublisher", 100, "Data"));
+
+    /**
+     * Adds some newspaper to the register.
+     */
+    public void fillNewspaperRegister() {
+        newspaperList.add(new Newspaper("VG", "VG", 365, "Sport"));
+        newspaperList.add(new Newspaper("Adressa", "Adressa", 300, "Dagavis"));
+        newspaperList.add(new Newspaper("Test", "Test2", 200, "anotherCategory"));
+        newspaperList.add(new Newspaper("365", "somePublisher", 100, "Data"));
     }
 
 }
