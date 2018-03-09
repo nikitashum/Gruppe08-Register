@@ -1,4 +1,3 @@
-
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -8,7 +7,6 @@ import java.util.Iterator;
  * @author Nikita Sumahers, Sarmad Abbas and Kristin Hagen
  * @version 2018-02-12
  */
-
 public class Register {
 
     private ArrayList<Newspaper> newspaperList;
@@ -76,10 +74,8 @@ public class Register {
     /**
      * Lists all persons in the phone book to the terminal window.
      */
-    public void listAllNewspaper() {
-        for (Newspaper p : this.newspaperList) {
-            System.out.println(p.getNewspaperDetails());
-        }
+    public Iterator<Newspaper> getIterator() {
+        return this.newspaperList.iterator();
     }
 
     /**
