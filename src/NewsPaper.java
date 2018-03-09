@@ -1,15 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 /**
+ * Represents a single newspaper, holding information
+ * about the title, the publisher, the number of releases each year and the category of the newspaper.
  *
- * @author Nikita Sumahers, Sarmad Abbas, Kristin Hagen
- * @
+ * @author Nikita Sumahers, Sarmad Abbas and Kristin Hagen
+ * @version 2018-03-09
  */
-public class NewsPaper {
+public class Newspaper {
 
     private String title;
     private String publisher;
@@ -17,24 +14,45 @@ public class NewsPaper {
     private String category;
 
     /**
+     * First Constructor for objects of class Newspaper.
      *
      * @param title - represents title of newspaper
      * @param publisher - represents newspaper publisher name
      * @param numberOfReleases - number of realeses of newspaper per year
      * @param category - name of the category for newspaper
      */
-    public NewsPaper(String title, String publisher, int numberOfReleases, String category) {
+    public Newspaper(String title, String publisher, int numberOfReleases, String category) {
         this.title = title;
         this.publisher = publisher;
         this.numberOfReleases = numberOfReleases;
         this.category = category;
     }
 
-    public NewsPaper(String title) {
+    /**
+     * Second Constructor for objects of class Newspaper.
+     *
+     * @param title - represents title of newspaper
+     */
+    public Newspaper(String title) {
         this.title = title;
     }
 
     /**
+     * Changes/sets the number of releases that are released each year to a new
+     * number.
+     *
+     * @param newNumberOfReleases - sets new number of releases
+     */
+    public void setNumberOfReleases(int newNumberOfReleases) {
+        if (newNumberOfReleases > 0) {
+            this.numberOfReleases = newNumberOfReleases;
+        } else {
+            this.numberOfReleases = 0;
+        }
+    }
+
+    /**
+     * Sets/Changes the publisher of newspaper to a new publisher.
      *
      * @param newPublisher - Sets new publisher for newspaper
      */
@@ -43,6 +61,7 @@ public class NewsPaper {
     }
 
     /**
+     * Sets/Changes the category of the newspaper to a new category.
      *
      * @param newCategory - Sets new category for newspaper
      */
@@ -51,6 +70,7 @@ public class NewsPaper {
     }
 
     /**
+     * Sets/Changes the title of the newspaper to a new title
      *
      * @param newTitle - Sets new title for newspaper
      */
@@ -59,6 +79,7 @@ public class NewsPaper {
     }
 
     /**
+     * Returns the title of the newspaper
      *
      * @return - return title of the newspaper
      */
@@ -67,6 +88,7 @@ public class NewsPaper {
     }
 
     /**
+     * Returns the publisher of the newspaper
      *
      * @return - return publisher of the newspaper
      */
@@ -75,6 +97,7 @@ public class NewsPaper {
     }
 
     /**
+     * Returns the number of releases of the newspaper each year
      *
      * @return - return number of realeses of the newspaper per year
      */
@@ -83,14 +106,11 @@ public class NewsPaper {
     }
 
     /**
+     * Returns the category of the newpaper
      *
      * @return - return category of the newspaper
      */
     public String getCategory() {
         return this.category;
-    }
-
-    public String getNewspaperDetails() {
-        return "Title: " + this.title + " Publisher: " + this.publisher + " Category: " + this.category + " Number of realese per year: " + this.numberOfReleases;
     }
 }
