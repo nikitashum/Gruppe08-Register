@@ -5,7 +5,7 @@ import java.util.Iterator;
  * Represents the register of newspaper.
  *
  * @author Nikita Sumahers, Sarmad Abbas and Kristin Hagen
- * @version 2018-02-12
+ * @version 2018-03-09
  */
 public class Register {
 
@@ -15,7 +15,7 @@ public class Register {
      * Constructor for objects of class Register.
      */
     public Register() {
-        this.newspaperList = new ArrayList<Newspaper>();
+        this.newspaperList = new ArrayList<>();
     }
 
     /**
@@ -41,6 +41,7 @@ public class Register {
      * their title
      *
      * @param title - the string of the newspaper to remove from the register
+     * @return Returns Newspapers as object
      */
     public Newspaper getNewspaperByTitle(String title) {
         Newspaper foundNewspaper = null;
@@ -58,7 +59,7 @@ public class Register {
      * Removes all newspapers that contain a given string in their title from
      * the register
      *
-     * @param title - the string of the newspaper to remove from the register
+     * @param titleToRemove - the string of the newspaper to remove from the register
      */
     public void removeByTitleContains(String titleToRemove) {
         Iterator<Newspaper> it = newspaperList.iterator();

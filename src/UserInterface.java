@@ -3,14 +3,11 @@ import java.util.Iterator;
 import java.util.Scanner;
 import javafx.scene.paint.Color;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 /**
+ * Represents user interface
  *
- * @author E-Dev
+ * @author Nikita Sumahers, Sarmad Abbas and Kristin Hagen
+ * @version 2018-03-09
  */
 public class UserInterface {
 
@@ -38,12 +35,14 @@ public class UserInterface {
                 choice = 99;
             }
 
+            // Fill newspaper with predefined newspapers
             switch (choice) {
                 case 1:
                     this.register.fillNewspaperRegister();
                     System.out.println("Newspaper register i filled with newspaper");
                     break;
 
+                // Get all registered newspapers displayed
                 case 2:
                     Iterator<Newspaper> it = this.register.getIterator();
                     if (!it.hasNext()) {
@@ -58,14 +57,14 @@ public class UserInterface {
                         System.out.println();
                     }
                     break;
-
+                // Delete chosen newspaper
                 case 3:
                     Iterator<Newspaper> it2 = this.register.getIterator();
                     if (!it2.hasNext()) {
                         System.out.println("Register is empty!");
                         break;
                     }
-                    
+
                     System.out.println("Insert the title of the newpaper to remove");
 
                     if (reader.hasNext()) {
@@ -80,6 +79,7 @@ public class UserInterface {
                     }
                     break;
 
+                // Quit
                 case 4:
                     finished = true;
                     System.out.println("Thank you for visiting our register, Bye..");
@@ -92,10 +92,16 @@ public class UserInterface {
         }
     }
 
+    /**
+     * Print welcome message
+     */
     public void printWelcome() {
         System.out.println("***Welocme to the newspaper register!***");
     }
 
+    /**
+     * Print menu choices
+     */
     public void printMenu() {
         System.out.println();
         System.out.println("***Menu***");
